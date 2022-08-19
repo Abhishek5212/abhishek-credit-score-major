@@ -7,6 +7,8 @@ model_DT = pickle.load(open('major_DT.pkl','rb'))
 model_KNN = pickle.load(open('major_KNN.pkl','rb'))
 model_log = pickle.load(open('major_log.pkl','rb'))
 model_NB = pickle.load(open('major_NB.pkl','rb'))
+model_RF = pickle.load(open('major_RF.pkl','rb'))
+model_SVM = pickle.load(open('major_SVM.pkl','rb'))
 model_Kmean = pickle.load(open('kmeanscluster.pkl','rb'))
 
 
@@ -65,7 +67,7 @@ def predict():
     Model = (request.args.get('Model'))
 
     if Model=="Random Forest Classifier":
-      prediction = model_DT.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
+      prediction = model_RF.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
 
     elif Model=="Decision Tree Classifier":
       prediction = model_DT.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
@@ -77,7 +79,7 @@ def predict():
       prediction = model_log.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
 
     elif Model=="SVM":
-      prediction = model_log.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
+      prediction = model_SVM.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
 
     elif Model=="K Means Cluster":
       prediction = model_log.predict([[ex1,ex2,ex3,ex4,ex5,ex6,ex7,ex8,ex9,ex10,ex11]])
